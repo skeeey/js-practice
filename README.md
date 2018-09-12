@@ -15,3 +15,6 @@ Javascript programming practice
 - Mac
 ``` npm unlink ```
 
+## workflow-viz
+
+Using [mxgraph](https://github.com/jgraph/mxgraph) to visualize workflow
