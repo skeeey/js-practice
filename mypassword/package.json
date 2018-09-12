@@ -1,0 +1,25 @@
+{
+  "name": "mypassword",
+  "version": "0.1.0",
+  "description": "Manage my passwords",
+  "main": "bin/mypassword",
+  "scripts": {
+    "start": "node mypassword.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skeeey/js-practice.git"
+  },
+  "author": "skeeey",
+  "license": "SEE LICENSE IN https://github.com/skeeey/js-practice/blob/master/LICENSE",
+  "bugs": {
+    "url": "https://github.com/skeeey/js-practice/issues"
+  },
+  "homepage": "https://github.com/skeeey/js-practice#readme",
+  "dependencies": {
+    "commander": "^2.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.5.0"
+  }
+}
