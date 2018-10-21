@@ -1,0 +1,88 @@
+<div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ui-sref="home">{{ 'home.brand' | translate }}</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" ng-class="!navCollapsed && 'in'">
+                <ul class="nav navbar-nav nav-space">
+                    <li ng-class="{'navbar-active': ctrl.currentState.type == 'dashboard'}" ng-show="ctrl.showDashboard()">
+                        <a ui-sref="home.dashboard" ng-click="ctrl.changeState('dashboard')" ng-show="navCollapsed">
+                            <u class="glyphicon glyphicon-dashboard"></u>
+                        </a>
+                        <a ui-sref="home.dashboard" ng-click="ctrl.changeState('dashboard')" ng-show="!navCollapsed">
+                            <u class="glyphicon glyphicon-dashboard"></u><span> {{ 'home.dashboard' | translate }}</span>
+                        </a>
+                    </li>
+                    <li ng-class="{'navbar-active': ctrl.currentState.type == 'grains'}">
+                        <a ui-sref="home.grains.tags" ng-click="ctrl.changeState('grains', 'tags')" ng-show="navCollapsed">
+                            <u class="glyphicon glyphicon-grain"></u>
+                        </a>
+                        <a ui-sref="home.grains.tags" ng-click="ctrl.changeState('grains', 'tags')" ng-show="!navCollapsed">
+                            <u class="glyphicon glyphicon-grain"></u><span> {{ 'grains.grains' | translate }}</span>
+                        </a>
+                    </li>
+                    <li ng-class="{'navbar-active': ctrl.currentState.type == 'leaves'}">
+                       <a ui-sref="home.leaves.tasks" ng-click="ctrl.changeState('leaves', 'tasks')" ng-show="navCollapsed">
+                           <u class="glyphicon glyphicon-leaf"></u>
+                        </a>
+                        <a ui-sref="home.leaves.tasks" ng-click="ctrl.changeState('leaves', 'tasks')" ng-show="!navCollapsed">
+                           <u class="glyphicon glyphicon-leaf"></u><span> {{ 'home.leaves' | translate }}</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="navbar-padding" href="javascript: void(0);" ng-click="ctrl.logout()">
+                            <span class="glyphicon glyphicon-off"></span> {{'home.logout' | translate}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar" ng-show="ctrl.currentState.type !== 'dashboard'">
+                <ul class="nav nav-sidebar">
+                    <li ng-class="{'active': ctrl.currentState.type == 'grains'}">
+                        <a ui-sref="home.grains.tags" ng-click="ctrl.changeState('grains', 'tags')">
+                            <u class="glyphicon glyphicon-grain"></u> <span>{{ 'home.grains' | translate }}</span>
+                        </a>
+                        <ul class="nav nav-sidebar-sub" uib-collapse="!(ctrl.currentState.type == 'grains')">
+                            <li ng-class="{'nav-sidebar-sub-active': (ctrl.currentState.type == 'grains' && ctrl.currentState.name == 'tags')}" >
+                                <a ui-sref="home.grains.tags" ng-click="ctrl.changeState('grains', 'tags')">
+                                    <u class="glyphicon glyphicon-tag"></u> <span>{{'home.grains.tags' | translate}}</span>
+                                </a>
+                            </li>
+                            <li ng-class="{'nav-sidebar-sub-active': (ctrl.currentState.type == 'grains' && ctrl.currentState.name == 'bookmarks')}" >
+                                <a ui-sref="home.grains.bookmarks" ng-click="ctrl.changeState('grains', 'bookmarks')">
+                                    <u class="glyphicon glyphicon-bookmark"></u> <span>{{'home.grains.bookmarks' | translate}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li ng-class="{'active': ctrl.currentState.type == 'leaves'}">
+                        <a ui-sref="home.leaves.tasks" ng-click="ctrl.changeState('leaves', 'tasks')">
+                            <u class="glyphicon glyphicon-leaf"></u> <span>{{ 'home.leaves' | translate }}</span>
+                        </a>
+                        <ul class="nav nav-sidebar-sub" uib-collapse="!(ctrl.currentState.type == 'leaves')">
+                            <li ng-class="{'nav-sidebar-sub-active': (ctrl.currentState.type == 'leaves' && ctrl.currentState.name == 'tasks')}">
+                                <a ui-sref="home.leaves.tasks" ng-click="ctrl.changeState('leaves', 'tasks')">
+                                    <u class="glyphicon glyphicon-tasks"></u> <span>{{'home.leaves.tasks' | translate}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div ui-view></div>
+        </div>
+    </div>
+</div>
