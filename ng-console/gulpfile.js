@@ -9,7 +9,6 @@ var rev = require('gulp-rev');
 var revCollector = require('gulp-rev-collector');
 var connect = require('gulp-connect');
 var proxy = require('http-proxy-middleware');
-var jsonServer = require('json-server')
 
 gulp.task('clean', function () {
     return gulp.src(['build/*', 'dist/*'], {read: false})
