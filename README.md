@@ -18,3 +18,18 @@ Javascript programming practice
 ## workflow-viz
 
 Using [mxgraph](https://github.com/jgraph/mxgraph) to visualize workflow
+
+
+## ng-console
+
+### build and run
+```
+npm install
+npm run build
+npm run dev
+```
+
+### features
+- RBAC
+- i18n
+- navigation
