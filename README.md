@@ -22,7 +22,7 @@ Using [mxgraph](https://github.com/jgraph/mxgraph) to visualize workflow
 
 ## ng-console
 
-A demo for AngularJS 1.5.2
+A console demo for AngularJS 1.5.2
 
 ### build and run
 ```
