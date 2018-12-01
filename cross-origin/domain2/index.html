@@ -4,5 +4,22 @@
 </head>
 <body>
     <p>I'm domain2</p>
+    <script type="text/javascript">
+        if (window.parent !== window) {
+            try {
+                //This should be blocked by same-origin policy
+                window.parent.document.getElementById("input0");
+            } catch(e) {
+                console.log("Failed to visit parent's document:", e);
+            }
+
+            try {
+                //This also should be blocked by same-origin policy
+                console.log(window.parent.window.localStorage)
+            } catch(e) {
+                console.log("Failed to visit parent's storage:", e);
+            }
+        }
+    </script>
 </body>
 </html>

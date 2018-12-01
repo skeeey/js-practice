@@ -3,20 +3,18 @@
     <title>domain1</title>
 </head>
 <body>
-    <input id="input0" value="">
+    <iframe src="http://127.0.0.1:8081/index.html"></iframe>
 
+    <br>
+
+    <div>
+        <label for="input0">domain1</label>
+        <input id="input0" value="">
+    </div>
+
+    <!-- Can read the document/storage by embed a different domain script -->
     <script type="text/javascript" src="http://127.0.0.1:8081/recover.js"></script>
-    <script type="text/javascript">
-        // var field0 = document.getElementById("input0");
-        // if (sessionStorage.getItem("autosave")) {
-        //     // recover the value of input0 after papge refresh
-        //     field0.value = sessionStorage.getItem("autosave");
-        // }
 
-        // field0.addEventListener("change", function() {
-        //     sessionStorage.setItem("autosave", field0.value);
-        // });
-    </script>
     <script type="text/javascript">
         // This will be blocked by CORS policy: No 'Access-Control-Allow-Origin'
         // header is present on the requested resource. If an opaque response
