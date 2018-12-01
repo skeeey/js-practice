@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>domain1</title>
+</head>
+<body>
+    <input id="input0" value="">
+
+    <script type="text/javascript" src="http://127.0.0.1:8081/recover.js"></script>
+    <script type="text/javascript">
+        // var field0 = document.getElementById("input0");
+        // if (sessionStorage.getItem("autosave")) {
+        //     // recover the value of input0 after papge refresh
+        //     field0.value = sessionStorage.getItem("autosave");
+        // }
+
+        // field0.addEventListener("change", function() {
+        //     sessionStorage.setItem("autosave", field0.value);
+        // });
+    </script>
+    <script type="text/javascript">
+        // This will be blocked by CORS policy: No 'Access-Control-Allow-Origin'
+        // header is present on the requested resource. If an opaque response
+        // serves your needs, set the request's mode to 'no-cors' to fetch the
+        // resource with CORS disabled.
+        fetch('http://127.0.0.1:8081/test.json')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(myJson) {
+            console.log(JSON.stringify(myJson));
+        });
+    </script>
+</body>
+</html>
